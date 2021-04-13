@@ -7,6 +7,19 @@
             <p>@Game.ReleaseDate</p>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-danger" @onclick="Delete">Delete</button>
+        </div>
+        <div class="col">
+            @if (message != null)
+            {
+                <span class="text-danger">@message</span>
+                message = null;
+            }
+        </div>
+    </div>
 }
 else
 {
@@ -14,6 +27,17 @@ else
         <td>@Game.Name</td>
         <td>@Game.Genre</td>
         <td>@Game.ReleaseDate.ToString("dd.MM.yyyy")</td>
+        <td>
+            @if (DisplayButtons)
+            {
+                <button class="btn btn-danger" @onclick="Delete">Delete</button>
+            }
+            @if (message != null)
+            {
+                <span class="text-danger pl-3">@message</span>
+                message = null;
+            }
+        </td>
     </tr>
 }
 
@@ -23,4 +47,15 @@ else
 
     [Parameter]
     public bool IsTable { get; set; }
+
+    [Parameter]
+    public bool DisplayButtons { get; set; } = false;
+
+    string message;
+
+    void Delete()
+    {
+        // Delete logic.....
+        message = $"{Game.Name} Deleted!";
+    }
 }
