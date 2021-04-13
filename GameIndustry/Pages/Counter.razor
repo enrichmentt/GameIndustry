@@ -3,7 +3,7 @@
 <h1>Counter</h1>
 
 <p>Current count: @currentCount</p>
-<GameListTable Games="anotherGames"/>
+<IndividualGame Game="anotherGames[0]" IsTable="false" />
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
@@ -24,7 +24,7 @@
             {
                 Name = "Test counter",
                 Genre = "Counter",
-                ReleaseDte = new DateTime(2012, 11, 19)
+                ReleaseDate = new DateTime(2012, 11, 19)
             }
         };
     }

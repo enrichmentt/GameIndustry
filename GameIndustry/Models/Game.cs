@@ -12,6 +12,6 @@ namespace GameIndustry.Models
     {
         public string Name { get; set; }
         public string Genre { get; set; }
-        public DateTime ReleaseDte { get; set; }
+        public DateTime ReleaseDate { get; set; }
     }
 }
