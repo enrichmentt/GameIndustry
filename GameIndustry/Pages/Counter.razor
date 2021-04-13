@@ -3,7 +3,7 @@
 <h1>Counter</h1>
 
 <p>Current count: @currentCount</p>
-
+<GameListTable Games="anotherGames"/>
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
@@ -12,5 +12,20 @@
     private void IncrementCount()
     {
         currentCount++;
+    }
+
+    List<Game> anotherGames;
+
+    protected override void OnInitialized()
+    {
+        anotherGames = new List<Game>()
+    {
+            new Game()
+            {
+                Name = "Test counter",
+                Genre = "Counter",
+                ReleaseDte = new DateTime(2012, 11, 19)
+            }
+        };
     }
 }
